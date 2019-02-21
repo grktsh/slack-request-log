@@ -13,11 +13,12 @@ const createSlackMessage = logEntry => {
   const logUrl = 'https://console.cloud.google.com/logs/viewer?' + querystring.stringify({
     project: process.env.GCP_PROJECT,
     minLogLevel: 0,
-    expandAll: true,
+    expandAll: false,
     dateRangeStart: logEntry.timestamp,
     dateRangeEnd: new Date().toISOString(),
     interval: 'CUSTOM',
     logName: logEntry.logName,
+    resource: logEntry.resource.type,
     filters: `request_id:${requestLog.requestId}`,
   });
 
