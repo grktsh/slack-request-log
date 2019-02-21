@@ -54,7 +54,7 @@ const createSlackMessage = logEntry => {
     }
   ];
 
-  if (requestLog.line.length) {
+  if (requestLog.line && requestLog.line.length) {
     blocks.push({
       type: 'divider'
     });
