@@ -55,18 +55,30 @@ const createSlackMessage = logEntry => {
   ];
 
   if (requestLog.line && requestLog.line.length) {
-    blocks.push({
-      type: 'divider'
+    const logLineSeverities = [
+      'WARNING',
+      'ERROR',
+      'CRITICAL',
+      'ALERT',
+      'EMERGENCY'
+    ];
+    const logLines = requestLog.line.filter(logLine => {
+      return logLineSeverities.includes(logLine.severity);
     });
 
-    for (const line of requestLog.line) {
-      blocks.push({
-        type: 'section',
-        text: {
-          type: 'plain_text',
-          text: line.logMessage
+    if (logLines.length) {
+      blocks.push(
+        {
+          type: 'divider'
+        },
+        {
+          type: 'section',
+          text: {
+            type: 'plain_text',
+            text: logLines[logLines.length - 1].logMessage.split('\n')[0]
+          }
         }
-      });
+      );
     }
   }
   return { blocks };
