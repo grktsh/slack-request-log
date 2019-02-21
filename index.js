@@ -29,9 +29,9 @@ const createSlackMessage = logEntry => {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: `<${logUrl}|${logEntry.timestamp}> ${requestLog.method} ${
-          requestLog.resource
-        }`
+        text:
+          `<${logUrl}|${logEntry.timestamp}>\n` +
+          `${requestLog.method} ${requestLog.resource}`
       },
       fields: [
         {
