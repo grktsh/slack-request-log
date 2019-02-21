@@ -36,19 +36,19 @@ const createSlackMessage = logEntry => {
       fields: [
         {
           type: 'mrkdwn',
-          text: `*Severity*\n${logEntry.severity}`
+          text: `*Severity* ${logEntry.severity}`
         },
         {
           type: 'mrkdwn',
-          text: `*Status*\n${httpRequest.status}`
+          text: `*Status* ${httpRequest.status}`
         },
         {
           type: 'mrkdwn',
-          text: `*Service*\n${logEntry.resource.labels.module_id}`
+          text: `*Service* ${logEntry.resource.labels.module_id}`
         },
         {
           type: 'mrkdwn',
-          text: `*Version*\n${logEntry.resource.labels.version_id}`
+          text: `*Version* ${logEntry.resource.labels.version_id}`
         }
       ]
     }
@@ -65,13 +65,7 @@ const createSlackMessage = logEntry => {
         text: {
           type: 'plain_text',
           text: line.logMessage
-        },
-        fields: [
-          {
-            type: 'mrkdwn',
-            text: `*Severity*\n${line.severity}`
-          }
-        ]
+        }
       });
     }
   }
