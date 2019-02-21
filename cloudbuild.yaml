@@ -1,0 +1,9 @@
+steps:
+- name: gcr.io/cloud-builders/gcloud
+  args:
+  - functions
+  - deploy
+  - slackRequestLog
+  - --trigger-topic=cloud-builds
+  - --runtime=nodejs8
+  - --update-env-vars=SLACK_WEBHOOK_URL=${_SLACK_WEBHOOK_URL}
