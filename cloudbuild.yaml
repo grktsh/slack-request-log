@@ -4,6 +4,6 @@ steps:
   - functions
   - deploy
   - slackRequestLog
-  - --trigger-topic=cloud-builds
+  - --trigger-topic=request-logs
   - --runtime=nodejs8
   - --update-env-vars=SLACK_WEBHOOK_URL=${_SLACK_WEBHOOK_URL}
