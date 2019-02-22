@@ -14,8 +14,6 @@ const createSlackMessage = logEntry => {
     'https://console.cloud.google.com/logs/viewer?' +
     querystring.stringify({
       project: process.env.GCP_PROJECT,
-      minLogLevel: 0,
-      expandAll: false,
       dateRangeStart: logEntry.timestamp,
       dateRangeEnd: new Date().toISOString(),
       interval: 'CUSTOM',
