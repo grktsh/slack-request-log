@@ -73,7 +73,7 @@ const createSlackMessage = logEntry => {
           type: 'section',
           text: {
             type: 'plain_text',
-            text: logLines[logLines.length - 1].logMessage.split('\n')[0]
+            text: logLines[logLines.length - 1].logMessage.slice(0, 100)
           }
         }
       );
