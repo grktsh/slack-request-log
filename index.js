@@ -1,5 +1,5 @@
 const querystring = require('querystring');
-const IncomingWebhook = require('@slack/client').IncomingWebhook;
+const IncomingWebhook = require('@slack/webhook').IncomingWebhook;
 const webhook = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL);
 
 exports.slackRequestLog = data => {
