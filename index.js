@@ -27,9 +27,7 @@ const createSlackMessage = logEntry => {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text:
-          `<${logUrl}|${logEntry.timestamp}>\n` +
-          `${requestLog.method} ${requestLog.resource}`
+        text: `<${logUrl}|${requestLog.method} ${requestLog.resource}>`
       },
       fields: [
         {
@@ -47,6 +45,10 @@ const createSlackMessage = logEntry => {
         {
           type: 'mrkdwn',
           text: `*Version* ${logEntry.resource.labels.version_id}`
+        },
+        {
+          type: 'mrkdwn',
+          text: `*IP* ${requestLog.ip}`
         }
       ]
     }
