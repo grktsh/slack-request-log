@@ -49,6 +49,10 @@ const createSlackMessage = logEntry => {
         {
           type: 'mrkdwn',
           text: `*IP* ${requestLog.ip}`
+        },
+        {
+          type: 'mrkdwn',
+          text: `*UserAgent* ${requestLog.userAgent}`
         }
       ]
     }
